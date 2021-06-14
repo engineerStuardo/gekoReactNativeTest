@@ -52,7 +52,7 @@ const Calculator = ({ navigation }) => {
     }
     setData({
       ...data,
-      result: value.toFixed(2),
+      result: value % 1 != 0 ? value.toFixed(2) : value,
     });
   };
 
@@ -70,13 +70,23 @@ const Calculator = ({ navigation }) => {
       <CalculatorHeader navigation={navigation} />
       <View
         style={{
-          flex: 0.3,
+          flex: 0.9,
           backgroundColor: '#0073b1',
           justifyContent: 'center',
           alignItems: 'center',
           flexDirection: 'row',
         }}
       >
+        <View
+          style={{
+            position: 'absolute',
+            top: -600,
+            backgroundColor: '#f4f4f4',
+            width: 700,
+            height: 700,
+            borderRadius: 700,
+          }}
+        />
         <Result data={data} />
       </View>
       <>

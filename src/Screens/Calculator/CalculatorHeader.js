@@ -4,7 +4,7 @@ import { View, Text, TouchableOpacity, Image } from 'react-native';
 
 export const CalculatorHeader = ({ navigation }) => {
   return (
-    <View style={{ flex: 0.3, backgroundColor: '#f4f4f4' }}>
+    <View style={{ flex: 0.3, backgroundColor: '#f4f4f4', zIndex: 9999 }}>
       <View
         style={{
           flexDirection: 'row',
