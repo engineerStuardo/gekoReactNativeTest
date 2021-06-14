@@ -12,10 +12,11 @@ export const ButtonCalculator = ({
   paddingTop = 0,
   borderColor = '',
   backgroundColor = '',
+  update,
   children,
 }) => {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={() => update(children)}>
       <Text
         style={{
           backgroundColor,

@@ -1,10 +1,69 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { Avatar, Button } from 'react-native-paper';
 
-import { ButtonCalculator } from './ButtonCalculator';
+import { FirstRow } from './FirstRow';
+import { SecondRow } from './SecondRow';
+import { ThirdRow } from './ThirdRow';
+import { FourthRow } from './FourthRow';
+import { FifthRow } from './FifthRow';
 
 const Calculator = ({ navigation }) => {
+  const [data, setData] = useState({
+    a: '',
+    sign: '',
+    b: '',
+    result: -99,
+  });
+
+  const result = value => {
+    if (isNaN(value)) {
+      setData({
+        ...data,
+        sign: value,
+      });
+      return;
+    }
+    if (data.sign === '') {
+      setData({
+        ...data,
+        a: `${data.a}${value}`,
+      });
+    } else {
+      setData({
+        ...data,
+        b: `${data.b}${value}`,
+      });
+    }
+  };
+
+  const finalResult = () => {
+    let signOperation = data.sign;
+    let value = 0;
+    if (signOperation === '+') {
+      value = parseInt(data.a) + parseInt(data.b);
+    } else if (signOperation === '-') {
+      value = parseInt(data.a) - parseInt(data.b);
+    } else if (signOperation === 'X') {
+      value = parseInt(data.a) * parseInt(data.b);
+    } else if (signOperation === '/') {
+      value = parseInt(data.a) / parseInt(data.b);
+    }
+    setData({
+      ...data,
+      result: value.toFixed(2),
+    });
+  };
+
+  const clearAll = () => {
+    setData({
+      a: '',
+      sign: '',
+      b: '',
+      result: -99,
+    });
+  };
+
   return (
     <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
       <View style={{ flex: 0.3, backgroundColor: '#f4f4f4' }}>
@@ -39,255 +98,32 @@ const Calculator = ({ navigation }) => {
           flexDirection: 'row',
         }}
       >
-        <Text style={{ fontSize: 30, color: 'white', marginTop: 40 }}>8</Text>
-        <Text style={{ fontSize: 30, color: 'white', marginTop: 40 }}> + </Text>
-        <Text style={{ fontSize: 30, color: 'white', marginTop: 40 }}>5</Text>
-        <Text style={{ fontSize: 30, color: 'white', marginTop: 40 }}> = </Text>
-        <Text style={{ fontSize: 30, color: 'white', marginTop: 40 }}>13</Text>
+        <Text style={{ fontSize: 30, color: 'white', marginTop: 40 }}>
+          {data.a}
+        </Text>
+        <Text style={{ fontSize: 30, color: 'white', marginTop: 40 }}>
+          {' '}
+          {data.sign}{' '}
+        </Text>
+        <Text style={{ fontSize: 30, color: 'white', marginTop: 40 }}>
+          {data.b === '0' ? null : data.b}
+        </Text>
+        <Text style={{ fontSize: 30, color: 'white', marginTop: 40 }}>
+          {' '}
+          {data.result !== -99 ? '=' : null}{' '}
+        </Text>
+        <Text style={{ fontSize: 30, color: 'white', marginTop: 40 }}>
+          {' '}
+          {data.result !== -99 ? data.result : null}{' '}
+        </Text>
       </View>
       <>
         <View style={{ flexDirection: 'column', flex: 1 }}>
-          <View
-            style={{
-              flex: 1,
-              flexDirection: 'row',
-              backgroundColor: '#f4f4f4',
-              justifyContent: 'space-between',
-              paddingTop: 35,
-              paddingLeft: 45,
-              paddingRight: 45,
-            }}
-          >
-            <ButtonCalculator
-              color={'#009821'}
-              width={50}
-              height={50}
-              textAlign={'center'}
-              fontSize={32}
-            >
-              C
-            </ButtonCalculator>
-            <ButtonCalculator
-              color={'#009821'}
-              width={50}
-              height={50}
-              textAlign={'center'}
-              fontSize={15}
-              borderWidth={1}
-              paddingTop={11}
-              borderColor={'#009821'}
-            >
-              Clear
-            </ButtonCalculator>
-            <ButtonCalculator
-              color={'#009821'}
-              width={50}
-              height={50}
-              textAlign={'center'}
-              fontSize={32}
-            >
-              %
-            </ButtonCalculator>
-            <ButtonCalculator
-              color={'#009821'}
-              width={50}
-              height={50}
-              textAlign={'center'}
-              fontSize={32}
-            >
-              /
-            </ButtonCalculator>
-          </View>
-          <View
-            style={{
-              flex: 1,
-              flexDirection: 'row',
-              backgroundColor: '#f4f4f4',
-              justifyContent: 'space-between',
-              paddingLeft: 45,
-              paddingRight: 45,
-            }}
-          >
-            <ButtonCalculator
-              color={'gray'}
-              width={50}
-              height={50}
-              textAlign={'center'}
-              fontSize={32}
-            >
-              7
-            </ButtonCalculator>
-            <ButtonCalculator
-              color={'gray'}
-              width={50}
-              height={50}
-              textAlign={'center'}
-              fontSize={32}
-            >
-              8
-            </ButtonCalculator>
-            <ButtonCalculator
-              color={'gray'}
-              width={50}
-              height={50}
-              textAlign={'center'}
-              fontSize={32}
-            >
-              9
-            </ButtonCalculator>
-            <ButtonCalculator
-              color={'#009821'}
-              width={50}
-              height={50}
-              textAlign={'center'}
-              fontSize={32}
-            >
-              X
-            </ButtonCalculator>
-          </View>
-          <View
-            style={{
-              flex: 1,
-              flexDirection: 'row',
-              backgroundColor: '#f4f4f4',
-              justifyContent: 'space-between',
-              paddingLeft: 45,
-              paddingRight: 45,
-            }}
-          >
-            <ButtonCalculator
-              color={'gray'}
-              width={50}
-              height={50}
-              textAlign={'center'}
-              fontSize={32}
-            >
-              4
-            </ButtonCalculator>
-            <ButtonCalculator
-              color={'gray'}
-              width={50}
-              height={50}
-              textAlign={'center'}
-              fontSize={32}
-            >
-              5
-            </ButtonCalculator>
-            <ButtonCalculator
-              color={'gray'}
-              width={50}
-              height={50}
-              textAlign={'center'}
-              fontSize={32}
-            >
-              6
-            </ButtonCalculator>
-            <ButtonCalculator
-              color={'#009821'}
-              width={50}
-              height={50}
-              textAlign={'center'}
-              fontSize={32}
-            >
-              -
-            </ButtonCalculator>
-          </View>
-          <View
-            style={{
-              flex: 1,
-              flexDirection: 'row',
-              backgroundColor: '#f4f4f4',
-              justifyContent: 'space-between',
-              paddingLeft: 45,
-              paddingRight: 45,
-            }}
-          >
-            <ButtonCalculator
-              color={'gray'}
-              width={50}
-              height={50}
-              textAlign={'center'}
-              fontSize={32}
-            >
-              1
-            </ButtonCalculator>
-            <ButtonCalculator
-              color={'gray'}
-              width={50}
-              height={50}
-              textAlign={'center'}
-              fontSize={32}
-            >
-              2
-            </ButtonCalculator>
-            <ButtonCalculator
-              color={'gray'}
-              width={50}
-              height={50}
-              textAlign={'center'}
-              fontSize={32}
-            >
-              3
-            </ButtonCalculator>
-            <ButtonCalculator
-              color={'#009821'}
-              width={50}
-              height={50}
-              textAlign={'center'}
-              fontSize={32}
-            >
-              +
-            </ButtonCalculator>
-          </View>
-          <View
-            style={{
-              flex: 1,
-              flexDirection: 'row',
-              backgroundColor: '#f4f4f4',
-              justifyContent: 'space-between',
-              paddingLeft: 45,
-              paddingRight: 45,
-            }}
-          >
-            <ButtonCalculator
-              color={'#009821'}
-              width={50}
-              height={50}
-              textAlign={'center'}
-              fontSize={32}
-            >
-              %
-            </ButtonCalculator>
-            <ButtonCalculator
-              color={'gray'}
-              width={50}
-              height={50}
-              textAlign={'center'}
-              fontSize={32}
-            >
-              0
-            </ButtonCalculator>
-            <ButtonCalculator
-              color={'gray'}
-              width={50}
-              height={50}
-              textAlign={'center'}
-              fontSize={32}
-            >
-              .
-            </ButtonCalculator>
-
-            <ButtonCalculator
-              backgroundColor={'#009821'}
-              color={'white'}
-              width={50}
-              height={50}
-              textAlign={'center'}
-              fontSize={32}
-            >
-              =
-            </ButtonCalculator>
-          </View>
+          <FirstRow result={result} clearAll={clearAll} />
+          <SecondRow result={result} />
+          <ThirdRow result={result} />
+          <FourthRow result={result} />
+          <FifthRow result={result} finalResult={finalResult} />
         </View>
       </>
     </View>
