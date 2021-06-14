@@ -13,8 +13,10 @@ export const ButtonCalculator = ({
   borderColor = '',
   backgroundColor = '',
   update,
+  borderRadius = 0,
   children,
 }) => {
+  console.log(borderRadius);
   return (
     <TouchableOpacity onPress={() => update(children)}>
       <Text
@@ -28,6 +30,7 @@ export const ButtonCalculator = ({
           borderWidth,
           paddingTop,
           borderColor,
+          borderRadius,
         }}
       >
         {children}

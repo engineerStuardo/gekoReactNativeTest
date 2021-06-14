@@ -52,6 +52,7 @@ export const FifthRow = ({ result, finalResult }) => {
         height={50}
         textAlign={'center'}
         fontSize={32}
+        borderRadius={50}
       >
         =
       </ButtonCalculator>
