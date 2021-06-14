@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, Image } from 'react-native';
-import { Avatar, Button } from 'react-native-paper';
+import { View } from 'react-native';
 
+import { Result } from './Result';
+import { CalculatorHeader } from './CalculatorHeader';
 import { FirstRow } from './FirstRow';
 import { SecondRow } from './SecondRow';
 import { ThirdRow } from './ThirdRow';
@@ -66,29 +67,7 @@ const Calculator = ({ navigation }) => {
 
   return (
     <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
-      <View style={{ flex: 0.3, backgroundColor: '#f4f4f4' }}>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            marginTop: 25,
-            marginLeft: 25,
-          }}
-        >
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Avatar.Icon
-              color={'black'}
-              style={{ backgroundColor: '#f4f4f4', marginRight: 60 }}
-              size={60}
-              icon='arrow-left-drop-circle-outline'
-            />
-          </TouchableOpacity>
-          <Image source={require('../../../assets/logoGeko.png')} />
-        </View>
-        <View style={{ alignSelf: 'center' }}>
-          <Text style={{ color: '#009821' }}>Calculator</Text>
-        </View>
-      </View>
+      <CalculatorHeader navigation={navigation} />
       <View
         style={{
           flex: 0.3,
@@ -98,24 +77,7 @@ const Calculator = ({ navigation }) => {
           flexDirection: 'row',
         }}
       >
-        <Text style={{ fontSize: 30, color: 'white', marginTop: 40 }}>
-          {data.a}
-        </Text>
-        <Text style={{ fontSize: 30, color: 'white', marginTop: 40 }}>
-          {' '}
-          {data.sign}{' '}
-        </Text>
-        <Text style={{ fontSize: 30, color: 'white', marginTop: 40 }}>
-          {data.b === '0' ? null : data.b}
-        </Text>
-        <Text style={{ fontSize: 30, color: 'white', marginTop: 40 }}>
-          {' '}
-          {data.result !== -99 ? '=' : null}{' '}
-        </Text>
-        <Text style={{ fontSize: 30, color: 'white', marginTop: 40 }}>
-          {' '}
-          {data.result !== -99 ? data.result : null}{' '}
-        </Text>
+        <Result data={data} />
       </View>
       <>
         <View style={{ flexDirection: 'column', flex: 1 }}>

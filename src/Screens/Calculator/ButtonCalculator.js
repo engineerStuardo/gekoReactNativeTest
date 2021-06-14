@@ -16,7 +16,6 @@ export const ButtonCalculator = ({
   borderRadius = 0,
   children,
 }) => {
-  console.log(borderRadius);
   return (
     <TouchableOpacity onPress={() => update(children)}>
       <Text
