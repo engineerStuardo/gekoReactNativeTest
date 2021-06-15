@@ -59,6 +59,12 @@ const Description = styled(Text)`
   color: gray;
 `;
 
+const ListContainer = styled(View)`
+  flex: 1;
+  margin: 35px;
+  flex-direction: column;
+`;
+
 export {
   MainContainer,
   HeaderContainer,
@@ -68,4 +74,5 @@ export {
   CalculatorButton,
   Count,
   Description,
+  ListContainer,
 };

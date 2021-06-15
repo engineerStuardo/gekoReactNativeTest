@@ -12,6 +12,7 @@ import {
   CalculatorButton,
   Count,
   Description,
+  ListContainer,
 } from './HistoricalStyles';
 
 const Historical = ({ navigation, calculatorItems }) => {
@@ -50,7 +51,7 @@ const Historical = ({ navigation, calculatorItems }) => {
         }}
       >
         <ScrollView>
-          <View style={{ flex: 1, margin: 35, flexDirection: 'column' }}>
+          <ListContainer>
             {calculatorItems.length > 0 ? (
               calculatorItems.map((item, index) => (
                 <View style={{ flexDirection: 'row', marginBottom: 20 }}>
@@ -68,7 +69,7 @@ const Historical = ({ navigation, calculatorItems }) => {
                 <Text>Your history is empty...</Text>
               </View>
             )}
-          </View>
+          </ListContainer>
         </ScrollView>
       </View>
     </MainContainer>
