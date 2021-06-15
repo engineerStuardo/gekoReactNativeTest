@@ -32,7 +32,7 @@ const ButtonCalculator = ({
     children === 'X' &&
     data.sign === 'X' &&
     data.b !== '' &&
-    data.result !== -99
+    data.result !== 'z'
   ) {
     multiplicationFunction(data);
   }
@@ -40,7 +40,7 @@ const ButtonCalculator = ({
     children === '/' &&
     data.sign === '/' &&
     data.b !== '' &&
-    data.result !== -99
+    data.result !== 'z'
   ) {
     divisionFunction(data);
   }
@@ -48,7 +48,7 @@ const ButtonCalculator = ({
     children === '-' &&
     data.sign === '-' &&
     data.b !== '' &&
-    data.result !== -99
+    data.result !== 'z'
   ) {
     subtractionFunction(data);
   }
@@ -56,7 +56,7 @@ const ButtonCalculator = ({
     children === '+' &&
     data.sign === '+' &&
     data.b !== '' &&
-    data.result !== -99
+    data.result !== 'z'
   ) {
     additionFunction(data);
   }

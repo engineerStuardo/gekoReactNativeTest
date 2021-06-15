@@ -20,7 +20,7 @@ const Calculator = ({ navigation }) => {
     a: '',
     sign: '',
     b: '',
-    result: -99,
+    result: 'z',
   });
 
   const result = value => {
@@ -67,7 +67,7 @@ const Calculator = ({ navigation }) => {
       a: '',
       sign: '',
       b: '',
-      result: -99,
+      result: 'z',
     });
   };
 

@@ -1,27 +1,15 @@
 import React from 'react';
-import { Text } from 'react-native';
+
+import { TextInfo } from './ResultStyles';
 
 export const Result = ({ data }) => {
   return (
     <>
-      <Text style={{ fontSize: 50, color: 'white', marginTop: 160 }}>
-        {data.a}
-      </Text>
-      <Text style={{ fontSize: 50, color: 'white', marginTop: 160 }}>
-        {' '}
-        {data.sign}{' '}
-      </Text>
-      <Text style={{ fontSize: 50, color: 'white', marginTop: 160 }}>
-        {data.b === '0' ? null : data.b}
-      </Text>
-      <Text style={{ fontSize: 50, color: 'white', marginTop: 160 }}>
-        {' '}
-        {data.result !== -99 ? '=' : null}{' '}
-      </Text>
-      <Text style={{ fontSize: 50, color: 'white', marginTop: 160 }}>
-        {' '}
-        {data.result !== -99 ? data.result : null}{' '}
-      </Text>
+      <TextInfo>{data.a}</TextInfo>
+      <TextInfo> {data.sign} </TextInfo>
+      <TextInfo>{data.b === '0' ? null : data.b}</TextInfo>
+      <TextInfo> {data.result !== 'z' ? '=' : null} </TextInfo>
+      <TextInfo> {data.result !== 'z' ? data.result : null} </TextInfo>
     </>
   );
 };
