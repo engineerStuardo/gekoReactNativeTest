@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-import { ButtonCalculator } from './ButtonCalculator';
+import ButtonCalculator from './ButtonCalculator';
 
-export const SecondRow = ({ result }) => {
+export const SecondRow = ({ result, data }) => {
   return (
     <View
       style={{
@@ -52,6 +52,7 @@ export const SecondRow = ({ result }) => {
         height={50}
         textAlign={'center'}
         fontSize={32}
+        data={data}
       >
         X
       </ButtonCalculator>

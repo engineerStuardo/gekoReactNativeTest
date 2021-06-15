@@ -91,10 +91,10 @@ const Calculator = ({ navigation }) => {
       </View>
       <>
         <View style={{ flexDirection: 'column', flex: 1 }}>
-          <FirstRow result={result} clearAll={clearAll} />
-          <SecondRow result={result} />
-          <ThirdRow result={result} />
-          <FourthRow result={result} />
+          <FirstRow result={result} clearAll={clearAll} data={data} />
+          <SecondRow result={result} data={data} />
+          <ThirdRow result={result} data={data} />
+          <FourthRow result={result} data={data} />
           <FifthRow result={result} finalResult={finalResult} />
         </View>
       </>

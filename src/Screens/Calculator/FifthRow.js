@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-import { ButtonCalculator } from './ButtonCalculator';
+import ButtonCalculator from './ButtonCalculator';
 
 export const FifthRow = ({ result, finalResult }) => {
   return (

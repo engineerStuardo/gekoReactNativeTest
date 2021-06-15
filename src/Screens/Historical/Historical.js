@@ -1,8 +1,11 @@
-import React from 'react';
-import { View, Text, TouchableOpacity, Image } from 'react-native';
+import React, { useEffect } from 'react';
+import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { Avatar, Button } from 'react-native-paper';
+import { connect } from 'react-redux';
 
-const Historical = ({ navigation }) => {
+const Historical = ({ navigation, calculatorItems }) => {
+  console.log(calculatorItems);
+
   return (
     <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
       <View style={{ flex: 0.2, backgroundColor: '#f4f4f4' }}>
@@ -17,7 +20,7 @@ const Historical = ({ navigation }) => {
           <TouchableOpacity onPress={() => navigation.goBack()}>
             <Avatar.Icon
               color={'black'}
-              style={{ backgroundColor: '#f4f4f4', marginRight: 60 }}
+              style={{ backgroundColor: '#f4f4f4', marginRight: 30 }}
               size={60}
               icon='arrow-left-drop-circle-outline'
             />
@@ -64,37 +67,50 @@ const Historical = ({ navigation }) => {
           flex: 1,
         }}
       >
-        <View style={{ flex: 1, margin: 35, flexDirection: 'row' }}>
-          <Text
-            style={{
-              backgroundColor: '#009821',
-              width: 65,
-              height: 65,
-              fontSize: 40,
-              fontWeight: 'bold',
-              color: 'white',
-              textAlign: 'center',
-            }}
-          >
-            1
-          </Text>
-          <Text
-            style={{
-              backgroundColor: 'white',
-              height: 65,
-              width: '80%',
-              borderWidth: 2,
-              borderColor: 'gray',
-              textAlign: 'center',
-              paddingTop: 20,
-            }}
-          >
-            Substraction 1-1 = 0
-          </Text>
-        </View>
+        <ScrollView>
+          <View style={{ flex: 1, margin: 35, flexDirection: 'column' }}>
+            {calculatorItems.length > 0
+              ? calculatorItems.map((item, index) => (
+                  <View style={{ flexDirection: 'row', marginBottom: 20 }}>
+                    <Text
+                      style={{
+                        backgroundColor: '#009821',
+                        width: 65,
+                        height: 65,
+                        fontSize: 40,
+                        fontWeight: 'bold',
+                        color: 'white',
+                        textAlign: 'center',
+                      }}
+                    >
+                      {index + 1}
+                    </Text>
+                    <Text
+                      style={{
+                        backgroundColor: 'white',
+                        height: 65,
+                        width: '80%',
+                        borderWidth: 2,
+                        borderColor: 'gray',
+                        textAlign: 'center',
+                        paddingTop: 20,
+                        color: 'gray',
+                      }}
+                    >
+                      {item}
+                    </Text>
+                  </View>
+                ))
+              : null}
+          </View>
+        </ScrollView>
       </View>
     </View>
   );
 };
 
-export default Historical;
+const mapStateToProps = ({ calculatorItems }) => ({
+  calculatorItems,
+});
+
+export default connect(mapStateToProps, null)(Historical);

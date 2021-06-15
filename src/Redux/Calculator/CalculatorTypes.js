@@ -1,0 +1,6 @@
+export const CalculatorActionTypes = {
+  ADDITION: 'ADDITION',
+  SUBTRACTION: 'SUBTRACTION',
+  MULTIPLICATION: 'MULTIPLICATION',
+  DIVISION: 'DIVISION',
+};
