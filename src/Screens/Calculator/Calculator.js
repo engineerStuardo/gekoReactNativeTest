@@ -24,6 +24,10 @@ const Calculator = ({ navigation }) => {
   });
 
   const result = value => {
+    if (!isNaN(data.result)) {
+      setData({ a: value, sign: '', b: '', result: 'z' });
+      return;
+    }
     if (isNaN(value) && value === '.' && data.sign === '') {
       setData({
         ...data,
