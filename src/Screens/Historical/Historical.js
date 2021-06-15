@@ -16,8 +16,6 @@ import {
 } from './HistoricalStyles';
 
 const Historical = ({ navigation, calculatorItems }) => {
-  console.log(calculatorItems);
-
   return (
     <MainContainer>
       <HeaderContainer>
