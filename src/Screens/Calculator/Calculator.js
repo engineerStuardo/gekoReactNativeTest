@@ -24,6 +24,19 @@ const Calculator = ({ navigation }) => {
   });
 
   const result = value => {
+    if (isNaN(value) && value === '.' && data.sign === '') {
+      setData({
+        ...data,
+        a: `${data.a}${value}`,
+      });
+      return;
+    } else if (isNaN(value) && value === '.' && data.sign !== '') {
+      setData({
+        ...data,
+        b: `${data.b}${value}`,
+      });
+      return;
+    }
     if (isNaN(value)) {
       setData({
         ...data,
@@ -48,13 +61,13 @@ const Calculator = ({ navigation }) => {
     let signOperation = data.sign;
     let value = 0;
     if (signOperation === '+') {
-      value = parseInt(data.a) + parseInt(data.b);
+      value = parseFloat(data.a) + parseFloat(data.b);
     } else if (signOperation === '-') {
-      value = parseInt(data.a) - parseInt(data.b);
+      value = parseFloat(data.a) - parseFloat(data.b);
     } else if (signOperation === 'X') {
-      value = parseInt(data.a) * parseInt(data.b);
+      value = parseFloat(data.a) * parseFloat(data.b);
     } else if (signOperation === '/') {
-      value = parseInt(data.a) / parseInt(data.b);
+      value = parseFloat(data.a) / parseFloat(data.b);
     }
     setData({
       ...data,
