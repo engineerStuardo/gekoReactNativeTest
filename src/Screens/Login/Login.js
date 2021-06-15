@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import styled from 'styled-components/native';
 import { Button, TextInput } from 'react-native-paper';
 
@@ -8,8 +8,8 @@ import { LoginHeader } from '../../Shared/loginHeader';
 const LoginContainer = styled(View)``;
 
 const UserInput = styled(TextInput)`
-  width: 280px;
-  margin-top: 40px;
+  width: 210px;
+  margin-top: 60px;
   background-color: white;
   border-width: 1px;
   border-color: gray;
@@ -17,7 +17,7 @@ const UserInput = styled(TextInput)`
 `;
 
 const PasswordInput = styled(TextInput)`
-  width: 280px;
+  width: 210px;
   margin-top: 20px;
   background-color: white;
   border-width: 1px;
@@ -41,7 +41,7 @@ const Login = ({ navigation }) => {
       <View
         style={{
           width: 330,
-          height: 400,
+          height: 500,
           backgroundColor: 'white',
           alignItems: 'center',
           padding: 60,
@@ -90,6 +90,7 @@ const Login = ({ navigation }) => {
             />
           }
         />
+
         <LoginButton
           mode='contained'
           onPress={() => navigation.navigate('Historical')}

@@ -24,7 +24,9 @@ export const CalculatorHeader = ({ navigation }) => {
         <Image source={require('../../../assets/logoGeko.png')} />
       </View>
       <View style={{ alignSelf: 'center' }}>
-        <Text style={{ color: '#009821' }}>Calculator</Text>
+        <Text style={{ color: '#009821', fontWeight: 'bold', fontSize: 16 }}>
+          Calculator
+        </Text>
       </View>
     </View>
   );

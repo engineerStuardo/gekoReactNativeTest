@@ -19,7 +19,7 @@ const ImageContainer = styled.SafeAreaView`
 export const LoginHeader = () => (
   <ImageContainer>
     <Avatar.Image
-      style={{ backgroundColor: 'orange' }}
+      style={{ backgroundColor: '#0073b1' }}
       size={70}
       source={require('../../assets/login-icon.png')}
     />
