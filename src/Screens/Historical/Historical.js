@@ -51,14 +51,23 @@ const Historical = ({ navigation, calculatorItems }) => {
       >
         <ScrollView>
           <View style={{ flex: 1, margin: 35, flexDirection: 'column' }}>
-            {calculatorItems.length > 0
-              ? calculatorItems.map((item, index) => (
-                  <View style={{ flexDirection: 'row', marginBottom: 20 }}>
-                    <Count>{index + 1}</Count>
-                    <Description>{item}</Description>
-                  </View>
-                ))
-              : null}
+            {calculatorItems.length > 0 ? (
+              calculatorItems.map((item, index) => (
+                <View style={{ flexDirection: 'row', marginBottom: 20 }}>
+                  <Count>{index + 1}</Count>
+                  <Description>{item}</Description>
+                </View>
+              ))
+            ) : (
+              <View
+                style={{
+                  justifyContent: 'center',
+                  alignSelf: 'center',
+                }}
+              >
+                <Text>Your history is empty...</Text>
+              </View>
+            )}
           </View>
         </ScrollView>
       </View>
