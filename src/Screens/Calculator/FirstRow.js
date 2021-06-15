@@ -3,7 +3,13 @@ import React from 'react';
 import ButtonCalculator from './ButtonCalculator';
 import { RowContainer } from './RowStyles';
 
-export const FirstRow = ({ result, clearAll, data, calculatePercents }) => {
+export const FirstRow = ({
+  result,
+  clearAll,
+  data,
+  calculatePercents,
+  clear,
+}) => {
   return (
     <RowContainer style={{ paddingTop: 35 }}>
       <ButtonCalculator
@@ -25,6 +31,7 @@ export const FirstRow = ({ result, clearAll, data, calculatePercents }) => {
         borderWidth={1}
         paddingTop={11}
         borderColor={'#009821'}
+        update={clear}
       >
         Clear
       </ButtonCalculator>

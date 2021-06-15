@@ -98,6 +98,8 @@ const Calculator = ({ navigation }) => {
     });
   };
 
+  const clear = () => {};
+
   return (
     <MainContainer>
       <CalculatorHeader navigation={navigation} />
@@ -112,6 +114,7 @@ const Calculator = ({ navigation }) => {
             clearAll={clearAll}
             data={data}
             calculatePercents={calculatePercents}
+            clear={clear}
           />
           <SecondRow result={result} data={data} />
           <ThirdRow result={result} data={data} />
