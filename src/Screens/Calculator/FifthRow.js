@@ -1,20 +1,11 @@
 import React from 'react';
-import { View, Text } from 'react-native';
 
 import ButtonCalculator from './ButtonCalculator';
+import { RowContainer } from './RowStyles';
 
 export const FifthRow = ({ result, finalResult }) => {
   return (
-    <View
-      style={{
-        flex: 1,
-        flexDirection: 'row',
-        backgroundColor: '#f4f4f4',
-        justifyContent: 'space-between',
-        paddingLeft: 45,
-        paddingRight: 45,
-      }}
-    >
+    <RowContainer>
       <ButtonCalculator
         color={'#009821'}
         width={50}
@@ -56,6 +47,6 @@ export const FifthRow = ({ result, finalResult }) => {
       >
         =
       </ButtonCalculator>
-    </View>
+    </RowContainer>
   );
 };

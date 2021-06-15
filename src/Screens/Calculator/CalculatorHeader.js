@@ -1,18 +1,18 @@
 import React from 'react';
 import { Avatar } from 'react-native-paper';
-import { View, Text, TouchableOpacity, Image } from 'react-native';
+import { TouchableOpacity, Image } from 'react-native';
+
+import {
+  CalculatorHeaderContainer,
+  CalculatorInnerHeaderContainer,
+  TextContainer,
+  TextTitle,
+} from './CalculatorHeaderStyles';
 
 export const CalculatorHeader = ({ navigation }) => {
   return (
-    <View style={{ flex: 0.3, backgroundColor: '#f4f4f4', zIndex: 9999 }}>
-      <View
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          marginTop: 25,
-          marginLeft: 25,
-        }}
-      >
+    <CalculatorHeaderContainer>
+      <CalculatorInnerHeaderContainer>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Avatar.Icon
             color={'black'}
@@ -22,12 +22,10 @@ export const CalculatorHeader = ({ navigation }) => {
           />
         </TouchableOpacity>
         <Image source={require('../../../assets/logoGeko.png')} />
-      </View>
-      <View style={{ alignSelf: 'center' }}>
-        <Text style={{ color: '#009821', fontWeight: 'bold', fontSize: 16 }}>
-          Calculator
-        </Text>
-      </View>
-    </View>
+      </CalculatorInnerHeaderContainer>
+      <TextContainer>
+        <TextTitle>Calculator</TextTitle>
+      </TextContainer>
+    </CalculatorHeaderContainer>
   );
 };

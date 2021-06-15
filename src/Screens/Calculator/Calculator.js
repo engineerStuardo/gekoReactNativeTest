@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { View } from 'react-native';
 
 import { Result } from './Result';
 import { CalculatorHeader } from './CalculatorHeader';
@@ -8,6 +7,13 @@ import { SecondRow } from './SecondRow';
 import { ThirdRow } from './ThirdRow';
 import { FourthRow } from './FourthRow';
 import { FifthRow } from './FifthRow';
+
+import {
+  MainContainer,
+  BackgroundBlue,
+  WhiteCircle,
+  CalculatorContainer,
+} from './CalculatorStyles';
 
 const Calculator = ({ navigation }) => {
   const [data, setData] = useState({
@@ -66,39 +72,22 @@ const Calculator = ({ navigation }) => {
   };
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
+    <MainContainer>
       <CalculatorHeader navigation={navigation} />
-      <View
-        style={{
-          flex: 0.9,
-          backgroundColor: '#0073b1',
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexDirection: 'row',
-        }}
-      >
-        <View
-          style={{
-            position: 'absolute',
-            top: -600,
-            backgroundColor: '#f4f4f4',
-            width: 700,
-            height: 700,
-            borderRadius: 700,
-          }}
-        />
+      <BackgroundBlue>
+        <WhiteCircle />
         <Result data={data} />
-      </View>
+      </BackgroundBlue>
       <>
-        <View style={{ flexDirection: 'column', flex: 1 }}>
+        <CalculatorContainer>
           <FirstRow result={result} clearAll={clearAll} data={data} />
           <SecondRow result={result} data={data} />
           <ThirdRow result={result} data={data} />
           <FourthRow result={result} data={data} />
           <FifthRow result={result} finalResult={finalResult} />
-        </View>
+        </CalculatorContainer>
       </>
-    </View>
+    </MainContainer>
   );
 };
 

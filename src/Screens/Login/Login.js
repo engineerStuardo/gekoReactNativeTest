@@ -1,50 +1,25 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
-import styled from 'styled-components/native';
-import { Button, TextInput } from 'react-native-paper';
+import { Image } from 'react-native';
+import { TextInput } from 'react-native-paper';
 
 import { LoginHeader } from '../../Shared/loginHeader';
-
-const LoginContainer = styled(View)``;
-
-const UserInput = styled(TextInput)`
-  width: 210px;
-  margin-top: 60px;
-  background-color: white;
-  border-width: 1px;
-  border-color: gray;
-  height: 50px;
-`;
-
-const PasswordInput = styled(TextInput)`
-  width: 210px;
-  margin-top: 20px;
-  background-color: white;
-  border-width: 1px;
-  border-color: gray;
-  height: 50px;
-`;
-
-const LoginButton = styled(Button)`
-  margin-top: 40px;
-  width: 100%;
-  background-color: #009821;
-`;
+import {
+  LoginContainer,
+  BoxContainer,
+  UserInput,
+  PasswordInput,
+  LoginButton,
+} from './LoginStyles';
 
 const Login = ({ navigation }) => {
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
 
   return (
-    <View style={styles.container}>
+    <LoginContainer>
       <LoginHeader />
-      <View
+      <BoxContainer
         style={{
-          width: 330,
-          height: 500,
-          backgroundColor: 'white',
-          alignItems: 'center',
-          padding: 60,
           shadowColor: '#000',
           shadowOffset: {
             width: 0,
@@ -52,7 +27,6 @@ const Login = ({ navigation }) => {
           },
           shadowOpacity: 0.23,
           shadowRadius: 2.62,
-
           elevation: 4,
         }}
       >
@@ -97,18 +71,9 @@ const Login = ({ navigation }) => {
         >
           Login
         </LoginButton>
-      </View>
-    </View>
+      </BoxContainer>
+    </LoginContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 0.8,
-    backgroundColor: '#0073b1',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
 
 export default Login;

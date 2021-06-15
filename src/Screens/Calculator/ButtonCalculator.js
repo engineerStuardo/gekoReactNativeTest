@@ -1,6 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, Image } from 'react-native';
-import { Avatar, Button } from 'react-native-paper';
+import { Text, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 
 import {
