@@ -88,6 +88,16 @@ const Calculator = ({ navigation }) => {
     });
   };
 
+  const calculatePercents = () => {
+    setData({
+      ...data,
+      result:
+        (parseFloat(data.a) * parseFloat(data.b / 100)) % 1 !== 0
+          ? (parseFloat(data.a) * parseFloat(data.b / 100)).toFixed(2)
+          : parseFloat(data.a) * parseFloat(data.b / 100),
+    });
+  };
+
   return (
     <MainContainer>
       <CalculatorHeader navigation={navigation} />
@@ -97,11 +107,20 @@ const Calculator = ({ navigation }) => {
       </BackgroundBlue>
       <>
         <CalculatorContainer>
-          <FirstRow result={result} clearAll={clearAll} data={data} />
+          <FirstRow
+            result={result}
+            clearAll={clearAll}
+            data={data}
+            calculatePercents={calculatePercents}
+          />
           <SecondRow result={result} data={data} />
           <ThirdRow result={result} data={data} />
           <FourthRow result={result} data={data} />
-          <FifthRow result={result} finalResult={finalResult} />
+          <FifthRow
+            result={result}
+            finalResult={finalResult}
+            calculatePercents={calculatePercents}
+          />
         </CalculatorContainer>
       </>
     </MainContainer>

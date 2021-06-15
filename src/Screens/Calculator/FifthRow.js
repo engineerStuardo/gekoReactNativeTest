@@ -3,7 +3,7 @@ import React from 'react';
 import ButtonCalculator from './ButtonCalculator';
 import { RowContainer } from './RowStyles';
 
-export const FifthRow = ({ result, finalResult }) => {
+export const FifthRow = ({ result, finalResult, calculatePercents }) => {
   return (
     <RowContainer>
       <ButtonCalculator
@@ -12,6 +12,7 @@ export const FifthRow = ({ result, finalResult }) => {
         height={50}
         textAlign={'center'}
         fontSize={32}
+        update={calculatePercents}
       >
         %
       </ButtonCalculator>
