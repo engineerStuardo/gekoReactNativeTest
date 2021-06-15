@@ -5,7 +5,7 @@ import { RowContainer } from './RowStyles';
 
 export const FirstRow = ({ result, clearAll, data }) => {
   return (
-    <RowContainer>
+    <RowContainer style={{ paddingTop: 35 }}>
       <ButtonCalculator
         update={clearAll}
         color={'#009821'}
